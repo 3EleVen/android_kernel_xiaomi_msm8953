@@ -318,6 +318,7 @@ static int enable_spk_ext_pa(struct snd_soc_codec *codec, int enable)
 			__func__, "ext_spk_gpio");
 		return ret;
 	}
+		gpio_set_value_cansleep(pdata->spk_ext_pa_gpio, enable);
 #else
 		while (pa_mode > 0) {
 			gpio_set_value_cansleep(pdata->spk_ext_pa_gpio, 0);
